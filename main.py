@@ -17,14 +17,12 @@ def addDay():
   global DAY2
   global CURMONTH
   global CURDAY
-  global RANDOM_EVENT_POS
-  global EVENT_HAPPENED
   #subtracts food
-  if FOOD_CHG == 0: #bonus: if player is NOT resting/hunting, standard amt of food is taken
+  if FOOD_CHG == 0: #if player is NOT resting/hunting, standard amt of food is taken
     FOOD -= 5
-  if FOOD_CHG == 1: #bonus: if player is resting, take less food
+  if FOOD_CHG == 1: #if player is resting, take less food
     FOOD -= 4
-  if FOOD_CHG == 2: #bonus: if player is hunting, use more food
+  if FOOD_CHG == 2: #if player is hunting, use more food
     FOOD -= 6
   #change health
   if DAY1 == CURDAY or DAY2 == CURDAY:
@@ -52,7 +50,7 @@ def updateDays(numDays):
   while(numDays > 0):
     addDay()
     numDays -= 1
-  FOOD_CHG = 0 #bonus: resets food change
+  FOOD_CHG = 0 #resets food change
 
 
 ##**Actions
@@ -85,7 +83,7 @@ def travel():
 
 #name: rest
 #purpose: player stops traveling for set amount of days to restore health
-#input:
+#input: user action
 #return:
 def rest():
   global HEALTH
@@ -98,7 +96,7 @@ def rest():
 
 #name: hunt
 #purpose: adds random amount food
-#input:
+#input: user action
 #return: new food amount
 def hunt():
   global FOOD
@@ -188,5 +186,5 @@ while death == False:
       print"You've run out of time..."
       death = True
 
-#user has died
+#user has died or game has ended
 print"Game over!"
